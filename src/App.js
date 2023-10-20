@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Search from "./Components/Search";
+import CurrentWeather from "./Components/CurrentWeather";
+import Forecast from "./Components/Forecast";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [location, setLocation] = useState({ latitude: 0, longitude: 0 });
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      ({ coords: { latitude, longitude } }) => {
+        setLocation({ latitude, longitude });
+      },
+      (error) => {
+        setError(true);
+      }
+    );
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="text-2xl">{JSON.stringify(location)}</h1>
+
+      <Search />
+      <CurrentWeather location={location} error={error} />
+      <Forecast location={location} error={error} />
     </div>
   );
 }
