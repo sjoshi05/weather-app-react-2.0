@@ -1,4 +1,5 @@
 import "./App.css";
+
 import Search from "./Components/Search";
 import CurrentWeather from "./Components/CurrentWeather";
 import Forecast from "./Components/Forecast";
@@ -24,11 +25,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="text-2xl">{JSON.stringify(currentLocation)}</h1>
-
+      <p className="w-full">{JSON.stringify(currentLocation)}</p>
+      <div className="container bg-slate-200 m-auto p-3 bg-opacity-10 backdrop-blur-sm">
       <Search />
       <CurrentWeather location={currentLocation} error={error} />
       <Forecast location={currentLocation} error={error} />
+      </div>
     </div>
   );
 }

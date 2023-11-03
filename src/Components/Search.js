@@ -5,14 +5,14 @@ export default function Search() {
 
   const form = (
     <form onSubmit={HandleSubmit}>
-      <div className="searchBox  w-5/6 border-slate-400 border-solid border-2 rounded-2xl mx-auto">
+      <div className="searchBox  w-5/6 border-slate-800 border-solid border-2 rounded-2xl mx-auto placeholder-gray-950 placeholder-opacity-100">
         <div className="px-2 grid grid-cols-12">
           <input
             type="search"
             name="city"
             placeholder="Enter a city"
             onChange={UpdateCity}
-            className="searchField px-2 col-span-11"
+            className="searchField px-2 col-span-11 bg-transparent"
           />
           <button type="submit" className="place-self-end">
             🔍

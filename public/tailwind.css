@@ -61,6 +61,9 @@ body {
   /* 1 */
   line-height: inherit;
   /* 2 */
+  background-image: url(./Media/cloudy_night.jpg);
+  background-position: top;
+  background-size: fill;
 }
 
 /*
@@ -99,7 +102,10 @@ h5,
 h6 {
   font-size: inherit;
   font-weight: inherit;
+  color: rgb(15 23 42);
 }
+
+p{color: rgb(15 23 42;}
 
 /*
 Reset links to optimize for opt-in styling instead of opt-out.
